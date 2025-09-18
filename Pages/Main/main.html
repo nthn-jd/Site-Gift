@@ -11,13 +11,13 @@
     <script id="InspectScript" src="../../Assets/Modules/Inspect/inspect.js"></script>
     <script id="CurtainScript" src="../../Assets/Modules/CurtainTransition/curtain_transition.js"></script>
 
-    <div id="main">
+    <div id="main" class="mainStuff">
         <h1 id="StartHint">Wake the cat up to start.</h1>
         <img id="SleepingCat" src="../../Assets/Images/SleepingCat.png" />
         <button id="WakeUpButton">Wake up</button>
         <audio id="WakeUpAttemptSound" style="display: none;" src="Audio/WakeUpAttempt.wav"></audio>
     </div>
-    <div id="legal" hidden>
+    <div id="legal" class="mainStuff" hidden>
         <div class="bg-image"></div>
         <div class="container" style="height: 256px; width: 256px; top: 50%; left: 50%">
             <img id="Icon" src="../../Assets/Images/CatIcon.png" style="top: 20%; left: 50%;" />
@@ -40,4 +40,5 @@
     </div>
     <script src="main.js"></script>
 </body>
+
 </html>
