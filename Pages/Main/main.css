@@ -11,7 +11,7 @@ body {
     filter: drop-shadow(2px 4px 6px black);
 }
 
-#main {
+.mainStuff {
     background-color: papayawhip;
     width: 100%;
     height: 100%;
@@ -103,4 +103,5 @@ body {
     border: none;
     outline: none;
 }
+
 
