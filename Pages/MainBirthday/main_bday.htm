@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Title</title>
+    <link rel="icon" type="image/x-icon" href="../../Assets/Images/CatIcon.png">
+    <link rel="stylesheet" type="text/css" href="main_bday.css">
+    <link rel="stylesheet" type="text/css" href="confetti.css">
+    <link rel="stylesheet" type="text/css" href="../../Assets/Styles/styles0.css">
+    <script src="../../Assets/Modules/frame.js"></script>
+</head>
+
+<body>
+    <script id="BirthdayBuddyScript" src="../../Assets/Modules/BirthdayBuddy/birthday_buddy.js"></script>
+    <script id="InspectScript" src="../../Assets/Modules/Inspect/inspect.js"></script>
+    <div id="main">
+        <div class="confetti-container">
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+        </div>
+
+        <audio loop autoplay id="ambient" src="Audio/ambient.wav"></audio>
+        <audio volume=".25" id="light" src="Audio/lightSwitch.ogg"></audio>
+        <audio id="vhs_audio" src="Audio/happybirthday_vhs.wav"></audio>
+        <audio loop id="bday_instrumental" src="Audio/happybirthday_instrumental.wav"></audio>
+        <div id="Items" class="flex-container">
+            <button class="flex-item" id="ImageButton" onclick="makeWish()">
+                <img id="CakeIcon" src="Images/Cake.png" />
+            </button>
+        </div>
+    </div>
+    <script src="main_bday.js"></script>
+</body>
+</html>

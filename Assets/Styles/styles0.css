@@ -1,0 +1,146 @@
+.bg-image {
+    background-image: url("../Images/Donut_Wallpaper.jpg");
+    filter: blur(5px);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: -10px;
+    z-index: -1;
+    background-size: contain;
+    animation: moveBackground 20s linear infinite alternate;
+}
+@keyframes moveBackground {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -100% 0;
+    }
+}
+
+.flex-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.flex-item {
+    transition: scale 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block-start: 25%;
+}
+
+    .flex-item:active {
+        scale: 1.1;
+    }
+
+.container {
+    background-color: papayawhip;
+    border: 10px solid burlywood;
+    border-radius: 25px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+.blur {
+    position: fixed;
+    width: 105%;
+    height: 110%;
+    margin: -2.5%;
+    background-color: black;
+    opacity: 0;
+    transition: opacity linear 0.5s;
+    filter: blur(5px);
+}
+
+.transition_fade {
+    position: fixed;
+    z-index: 111;
+    top: 0%;
+    width: 105%;
+    height: 110%;
+    margin: -2.5%;
+    background-color: black;
+    opacity: 0;
+    transition: opacity linear 0.5s;
+}
+    .transition_fade.enter {
+        opacity: 1;
+    }
+
+    .transition_fade.exit {
+        opacity: 0;
+    }
+
+.ad {
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    z-index: 112;
+}
+.close-add-button {
+    position: absolute;
+    z-index: 112;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-button {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 24px;
+    border-radius: 50%;
+    user-select: none;
+    transition: background-color 0.3s;
+}
+
+    .nav-button:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .nav-button.left {
+        left: 20px;
+    }
+
+    .nav-button.right {
+        right: 20px;
+    }
+
+    .nav-button span {
+        display: block;
+        pointer-events: none;
+    }
+
+#ImageButton {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

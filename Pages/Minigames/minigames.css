@@ -1,0 +1,12 @@
+body {
+    background-image: url("Images/Background.jpg");
+    background-size: cover;
+    background-position: 50%;
+}
+
+.ArcadeMachine {
+    position: relative;
+    height: 512px;
+    width: 256px;
+    filter: drop-shadow(2px 4px 6px black);
+}

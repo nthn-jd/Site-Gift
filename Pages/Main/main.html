@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Title</title>
+    <link rel="icon" type="image/x-icon" href="../../Assets/Images/CatIcon.png">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="../../Assets/Styles/styles0.css">
+</head>
+
+<body>
+    <script id="BirthdayBuddyScript" src="../../Assets/Modules/BirthdayBuddy/birthday_buddy.js"></script>
+    <script id="InspectScript" src="../../Assets/Modules/Inspect/inspect.js"></script>
+    <script id="CurtainScript" src="../../Assets/Modules/CurtainTransition/curtain_transition.js"></script>
+
+    <div id="main">
+        <h1 id="StartHint">Wake the cat up to start.</h1>
+        <img id="SleepingCat" src="../../Assets/Images/SleepingCat.png" />
+        <button id="WakeUpButton">Wake up</button>
+        <audio id="WakeUpAttemptSound" style="display: none;" src="Audio/WakeUpAttempt.wav"></audio>
+    </div>
+    <div id="legal" hidden>
+        <div class="bg-image"></div>
+        <div class="container" style="height: 256px; width: 256px; top: 50%; left: 50%">
+            <img id="Icon" src="../../Assets/Images/CatIcon.png" style="top: 20%; left: 50%;" />
+            <div id="Items" class="flex-container">
+                <button class="flex-item" id="ImageButton" onclick="OpenWaiver()">
+                    <img id="WaiverIcon" src="Images/Waiver.png" />
+                </button>
+                <button class="flex-item" id="ImageButton" onclick="Start()">
+                    <img id="PenIcon" src="Images/Pen.png" />
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-button left" id="leftNav" hidden>
+        <span>&#10094;</span>
+    </div>
+    <div class="nav-button right" id="rightNav" hidden>
+        <span>&#10095;</span>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

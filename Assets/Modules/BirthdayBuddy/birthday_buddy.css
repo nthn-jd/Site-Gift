@@ -1,0 +1,54 @@
+#DB_Frame {
+    margin: 0px;
+    z-index: 100;
+    position: fixed;
+    top: 100%;
+    left: 100%;
+    margin-left: -10px;
+}
+
+#BirthdayBuddy {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    z-index: 100;
+    transform: translate(-100%, -100%);
+    filter: drop-shadow(2px 4px 6px black);
+    animation: birthdayBuddyMove 1s ease-in-out infinite alternate;
+}
+@keyframes birthdayBuddyMove {
+    from {
+        margin-top: 0px;
+    }
+
+    to {
+        margin-top: -16px;
+    }
+}
+
+#ChatBubble {
+    position: absolute;
+    z-index: 100;
+    transform: translate(-100%, -100%);
+    margin-top: -195%;
+    margin-left: -70%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    filter: drop-shadow(2px 4px 6px black);
+}
+#ChatBubbleImage {
+    position: fixed;
+    width: 128%;
+    height: 128%;
+}
+#ChutBubbleText {
+    text-align: center;
+    margin-block-start: -10px;
+    margin-block-end: 0;
+    position: relative;
+    font-family: cursive;
+}
