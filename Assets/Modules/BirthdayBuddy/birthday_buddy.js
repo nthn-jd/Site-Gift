@@ -13,26 +13,26 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
 
 // Create Donut Buddy
-const db_frame = document.createElement("div")
-db_frame.id = "DB_Frame"
-document.body.appendChild(db_frame)
+const bb_frame = document.createElement("div")
+bb_frame.id = "BB_Frame"
+document.body.appendChild(bb_frame)
 
 const sprite = document.createElement("img")
 sprite.id = "BirthdayBuddy"
 sprite.src = db_path + "Sprites/Sprite_Template.png"
-db_frame.appendChild(sprite)
+bb_frame.appendChild(sprite)
 
 
 const messageSound = document.createElement("audio")
 messageSound.src = db_path + "messageSound.wav"
 messageSound.style = "display: none;"
-db_frame.appendChild(messageSound)
+bb_frame.appendChild(messageSound)
 let newMessage
 async function createMessage(message, duration, spriteImg, overridingDisabled) {
-    if (db_frame.parentNode == null) return;
+    if (bb_frame.parentNode == null) return;
     if (newMessage != null) {
         if (newMessage.overridingDisabled == true) return;
-        db_frame.removeChild(newMessage); newMessage = null;
+        bb_frame.removeChild(newMessage); newMessage = null;
     }
     if (spriteImg == null) { spriteImg = "Idle" }
     spriteImg = "Sprite_" + spriteImg
@@ -41,7 +41,7 @@ async function createMessage(message, duration, spriteImg, overridingDisabled) {
     newMessage = document.createElement("div")
     newMessage.id = "ChatBubble"
     newMessage.overridingDisabled = overridingDisabled
-    db_frame.appendChild(newMessage)
+    bb_frame.appendChild(newMessage)
     const background = document.createElement("img")
     background.src = db_path + "ChatBubble.png"
     background.id = "ChatBubbleImage"
@@ -72,6 +72,10 @@ async function createMessage(message, duration, spriteImg, overridingDisabled) {
         await delay(1)
     }
     if (newMessage == null) return;
-    db_frame.removeChild(newMessage)
+    bb_frame.removeChild(newMessage)
     newMessage = null;
+}
+function changePose(spriteImg) {
+    spriteImg = "Sprite_" + spriteImg
+    sprite.src = db_path + "Sprites/" + spriteImg + ".png"
 }

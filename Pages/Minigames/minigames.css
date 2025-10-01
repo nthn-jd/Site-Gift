@@ -6,7 +6,7 @@ body {
 
 .ArcadeMachine {
     position: relative;
-    height: 512px;
-    width: 256px;
+    height: 300px;
+    width: 150px;
     filter: drop-shadow(2px 4px 6px black);
 }
