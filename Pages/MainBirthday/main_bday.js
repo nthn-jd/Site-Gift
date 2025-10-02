@@ -21,12 +21,12 @@ async function StartBday() {
     await createMessage("May audio recording na iniwan si boss para sayo.", 4, "Dominance")
     await createMessage("Ipaplay ko na siya ..", 2.5, "LetterIdle")
     const vhs_audio = document.getElementById("vhs_audio")
-    vhs_audio.play()
     const vhs_img = inspect("Images/VHS.png")
     vhs_img.style.filter = "brightness(.5)"
     vhs_img.style.scale = 0.5
     vhs_img.style.transform = "translate(-100%, -100%)"
     while (vhs_audio.readyState < 3) { await delay(1) }
+    vhs_audio.play()
     vhs_audio.addEventListener("ended", async () => {
         stopInspecting()
         await createMessage("So inspirational wow wow", 3.5, "Cutie")
@@ -57,3 +57,4 @@ async function makeWish() {
 
     window.parent.postMessage('WishFinished', '*');
 }
+
