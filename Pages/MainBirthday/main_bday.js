@@ -26,7 +26,7 @@ async function StartBday() {
     vhs_img.style.scale = 0.5
     vhs_img.style.transform = "translate(-100%, -100%)"
     while (vhs_audio.readyState < 3) { await delay(1) }
-    vhs_audio.play()
+    while (vhs_audio.paused) { await delay(1); vhs_audio.play() }
     vhs_audio.addEventListener("ended", async () => {
         stopInspecting()
         await createMessage("So inspirational wow wow", 3.5, "Cutie")
@@ -57,4 +57,5 @@ async function makeWish() {
 
     window.parent.postMessage('WishFinished', '*');
 }
+
 
