@@ -9,6 +9,13 @@ inspect_css.type = "text/css"
 inspect_css.href = inspect_path + "inspect.css"
 document.head.appendChild(inspect_css)
 
+let leaveFuncContainer = []
+function stopInspecting() {
+    if (leaveFuncContainer == null) { return }
+    leaveFuncContainer[0]()
+    leaveFuncContainer[0] = null
+}
+
 let container = null
 function inspect(src) {
     if (container != null) return
@@ -39,14 +46,14 @@ function inspect(src) {
     setTimeout(enter, 10)
 
     function finish() { document.body.removeChild(container); container = null }
-    function leave() {
-        exit.removeEventListener("click", leave)
+    leaveFuncContainer[0] = () => {
+        exit.removeEventListener("click", leaveFuncContainer[0])
         blur.style.opacity = 0
         exit.style.opacity = 0
         img.classList.add("exit")
         setTimeout(finish, 1001)
     }
-    exit.addEventListener("click", leave)
+    exit.addEventListener("click", leaveFuncContainer[0])
 
     return img
 }
