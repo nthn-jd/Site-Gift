@@ -1,6 +1,17 @@
 let canMakeWIsh = false // CHANGE TO FALSE LATER
 async function StartBday() {
     await createMessage('Ito raw yung "birthday place", happy birthday!', 5, "Cheer")
+
+    // Wait for input
+    let inputDetected = false
+    document.body.addEventListener("click", () => {
+        inputDetected = true
+    })
+    createMessage("Do me a favor and tap the screen pls", 3, "Nervous")
+    while (!inputDetected) { await delay(1) }
+    await createMessage("Okay thank you !!", 1.69, "Cutie")
+    await createMessage("Anyways ..", 1, "Dominance")
+
     await createMessage("Medyo kulang budget namin so hanggang ganto lang kaya eh ..", 7, "Stare")
     await createMessage("Pero ..", 1, "Pause")
     await createMessage("Meron kang cake !!", 1.5, "Cutie")
@@ -17,6 +28,7 @@ async function StartBday() {
     vhs_img.style.transform = "translate(-100%, -100%)"
     while (vhs_audio.readyState < 3) { await delay(1) }
     vhs_audio.addEventListener("ended", async () => {
+        stopInspecting()
         await createMessage("So inspirational wow wow", 3.5, "Cutie")
         await createMessage("Anyways ...", 2.56, "Pause")
         document.getElementById("light").play()
@@ -45,4 +57,3 @@ async function makeWish() {
 
     window.parent.postMessage('WishFinished', '*');
 }
-

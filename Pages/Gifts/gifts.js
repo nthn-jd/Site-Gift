@@ -3,6 +3,17 @@ async function Intro() {
     await createMessage("..", .5, "Dominance")
     await delay(3000);
     await createMessage("Welcome to free roam!", 2, "Cheer")
+
+    // Wait for input
+    let inputDetected = false
+    document.body.addEventListener("click", () => {
+        inputDetected = true
+    })
+    createMessage("Do me another favor and tap the screen again pls", 3.5, "Nervous")
+    while (!inputDetected) { await delay(1) }
+    await createMessage("Okay thank you ulit !!", 1.69, "Cutie")
+    await createMessage("Anyways ..", 1, "Dominance")
+
     await createMessage("You are currently in the cards and gifts room.", 3.5, "Dominance")
     await createMessage("This room is where you can view cards and gifts from people who attended your birthday!", 6.9, "Cheer")
     await createMessage("Anyways, about the free roam..", 2.5, "Dominance")
