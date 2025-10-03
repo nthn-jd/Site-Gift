@@ -33,6 +33,10 @@ async function StartBday() {
         stopInspecting()
         await createMessage("So inspirational wow wow", 3.5, "Cutie")
         await createMessage("Anyways ...", 2.56, "Pause")
+        await createMessage("I have a surprise for you", 3, "Nervous")
+        inputDetected = false
+        createMessage("Tap mo yung screen to see it.", 4, "Cutie")
+        while (!inputDetected) { await delay(1) }
         document.getElementById("light").play()
         document.body.style.backgroundImage = 'url("Images/Background_bright.jpg")'
         document.getElementById("CakeIcon").style.filter = "drop-shadow(2px 4px 6px black) brightness(1) saturate(1.1) contrast(1.1)"
