@@ -37,7 +37,7 @@ body {
 .gift_controls {
     position: fixed;
     left: 50%;
-    top: 95vh;
+    top: 5vh;
     transform: translate(-50%, -50%);
     margin-top: 10px;
     display: flex;
@@ -61,3 +61,4 @@ body {
     position: relative;
     filter: drop-shadow(2px 4px 6px black);
 }
+
