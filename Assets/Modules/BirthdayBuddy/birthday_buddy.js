@@ -25,10 +25,15 @@ bb_frame.appendChild(sprite)
 const SpritesToPreload = [
     "Cheer", "Cutie", "Dominance", "DumbIdle", "HeadScratch", "LetterIdle", "Nervous", "Pause", "Stare", "Think"
 ]
-for (i = 0; i < SpritesToPreload.length; i++) {
-    sprite.src = bb_path + "Sprites/" + SpritesToPreload[i] + ".png"
+async function PreloadBBSprites() {
+    for (i = 0; i < SpritesToPreload.length; i++) {
+        sprite.src = bb_path + "Sprites/Sprite_" + SpritesToPreload[i] + ".png"
+        while (sprite.naturalHeight === 0 && sprite.naturalWidth === 0) { await delay(1) }
+        //console.log("Sprite '" + SpritesToPreload[i] + "' Loaded")
+        sprite.src = ""
+    }
+    sprite.src = bb_path + "Sprites/Sprite_Template.png"
 }
-sprite.src = bb_path + "Sprites/Sprite_Template.png"
 
 
 const messageSound = document.createElement("audio")
