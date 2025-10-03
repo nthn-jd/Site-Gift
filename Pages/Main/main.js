@@ -1,5 +1,6 @@
 const BirthdayBuddy = document.getElementById("BB_Frame")
 BirthdayBuddy.hidden = true
+PreloadBBSprites()
 
 let introStarted = false
 let canSign = false //change cansight to false LATER
