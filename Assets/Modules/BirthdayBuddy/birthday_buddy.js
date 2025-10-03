@@ -25,6 +25,7 @@ bb_frame.appendChild(sprite)
 const SpritesToPreload = [
     "Cheer", "Cutie", "Dominance", "DumbIdle", "HeadScratch", "LetterIdle", "Nervous", "Pause", "Stare", "Think"
 ]
+let currentSpriteBeforePreload = null
 async function PreloadBBSprites() {
     for (i = 0; i < SpritesToPreload.length; i++) {
         sprite.src = bb_path + "Sprites/Sprite_" + SpritesToPreload[i] + ".png"
@@ -34,6 +35,7 @@ async function PreloadBBSprites() {
     }
     sprite.src = bb_path + "Sprites/Sprite_Template.png"
 }
+PreloadBBSprites()
 
 
 const messageSound = document.createElement("audio")
@@ -51,6 +53,7 @@ async function createMessage(message, duration, spriteImg, overridingDisabled) {
     if (spriteImg == null) { spriteImg = "Idle" }
     spriteImg = "Sprite_" + spriteImg
     sprite.src = bb_path + "Sprites/" + spriteImg + ".png"
+    if (currentSpriteBeforePreload == null) { currentSpriteBeforePreload = sprite.src }
 
     newMessage = document.createElement("div")
     newMessage.id = "ChatBubble"
@@ -95,4 +98,5 @@ async function createMessage(message, duration, spriteImg, overridingDisabled) {
 function changePose(spriteImg) {
     spriteImg = "Sprite_" + spriteImg
     sprite.src = bb_path + "Sprites/" + spriteImg + ".png"
+    if (currentSpriteBeforePreload == null) { currentSpriteBeforePreload = sprite.src }
 }
