@@ -26,18 +26,9 @@ Intro()
 
 const content = document.querySelector('.gift_content');
 const gifts = [
-    { dir: "Waltuh", giftWidth: "300px", giftHeight: "300px", dbMessage: ["Walter sends his best regards.", 3, "Dominance"] },
-    { dir: "XiaosWife", giftless: true },
-    { dir: "Tartaglia", giftless: true },
-    { dir: "SistaHoney", giftless: true },
-    { dir: "Saul", giftWidth: "266px", giftHeight: "156px", dbMessage: ["Saul sends his best regards.", 3, "Dominance"], ignoreGiftInspectSizing: true },
-    { dir: "ExWifeg", giftWidth: "200px", giftHeight: "200px" },
-    { dir: "Chili", giftless: true },
     { dir: "DonutBuddy", giftWidth: "150px", giftHeight: "150px", dbMessage: ["This ones from my old co-worker!.", 2.5, "Stare"] },
-    { dir: "CoHost", giftWidth: "225px", giftHeight: "225px", dbMessage: ["The co-host just got himself into this..", 3, "Stare"] },
-    { dir: "Host", giftless: true, dbMessage: ["The host says happy birthday!", 2.25, "LetterIdle"] },
-    { dir: "LastLetter", giftless: true },
-    { dir: "Doodles", giftless: true },
+    { dir: "CoHost", giftWidth: "225px", giftHeight: "225px", fileExtension: "gif", dbMessage: ["Ewan ko kung ano trip ng co-host", 3, "Stare"] },
+    { dir: "Host", giftless: true, dbMessage: ["Happy birthday daw sabi ni boss!", 3.5, "LetterIdle"] },
 ]
 function createItem(entry) {
     const itemContainer = document.createElement("div")
@@ -52,11 +43,15 @@ function createItem(entry) {
     cardIcon.src = "Gifts/" + entry.dir + "/cardIcon.png"
     cardIcon.className = "cardIcon"
     cardButton.appendChild(cardIcon)
+    let alreadyMessaged = false
     cardButton.addEventListener("click", () => {
-        if (entry.dbMessage != null && gifts_intro_done) createMessage(entry.dbMessage[0], entry.dbMessage[1], entry.dbMessage[2]);
+        if (entry.dbMessage != null && gifts_intro_done && !alreadyMessaged) {
+            alreadyMessaged = true
+            createMessage(entry.dbMessage[0], entry.dbMessage[1], entry.dbMessage[2])
+        }
         const item = inspect(cardIcon.src.split("cardIcon.png")[0] + "card.png")
-        item.style.width = (parseFloat(cardIcon.style.width) * 1.5) + "px"
-        item.style.height = (parseFloat(cardIcon.style.height) * 1.5) + "px"
+        //item.style.width = (parseFloat(cardIcon.style.width) / 2) + "px"
+        //item.style.height = (parseFloat(cardIcon.style.height) / 2) + "px"
     })
 
     if (entry.giftless != null) return
@@ -65,7 +60,9 @@ function createItem(entry) {
     giftButton.id = "ImageButton"
     itemContainer.appendChild(giftButton)
     const giftIcon = document.createElement("img")
-    giftIcon.src = "Gifts/" + entry.dir + "/gift.png"
+    let fileExtension = "png"
+    if (entry.fileExtension != null) { fileExtension = entry.fileExtension }
+    giftIcon.src = "Gifts/" + entry.dir + "/gift." + fileExtension
     giftIcon.style.width = entry.giftWidth
     giftIcon.style.height = entry.giftHeight
     giftIcon.className = "giftIcon"
@@ -73,8 +70,8 @@ function createItem(entry) {
     giftButton.addEventListener("click", () => {
         const item = inspect(giftIcon.src)
         if (entry.ignoreGiftInspectSizing == true) return;
-        item.style.width = (parseFloat(giftIcon.style.width) * 1.5) + "px"
-        item.style.height = (parseFloat(giftIcon.style.width) * 1.5) + "px"
+        item.style.width = parseFloat(giftIcon.style.width) + "px"
+        item.style.height = parseFloat(giftIcon.style.width) + "px"
     })
 }
 for (var i = 0; i < gifts.length; i++) { createItem(gifts[i]) }

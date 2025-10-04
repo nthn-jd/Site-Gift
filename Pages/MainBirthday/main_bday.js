@@ -59,7 +59,14 @@ async function makeWish() {
     await createMessage("Alright!", 1, "Cheer")
     await createMessage("Ngayon ang regalo ko sayo ay ...", 2, "Nervous")
     await createMessage("Free Roam !!", 2, "Cutie")
-    await createMessage("Let me set that up na ..", 2.25, "HeadScratch")
+    // Wait for input
+    let inputDetected = false
+    document.body.addEventListener("click", () => {
+        inputDetected = true
+    })
+    createMessage("Tap mo yung screen if ready ka na makita", 4, "Dominance")
+    while (!inputDetected) { await delay(1) }
+    changePose("HeadScratch")
 
     window.parent.postMessage('WishFinished', '*');
 }
